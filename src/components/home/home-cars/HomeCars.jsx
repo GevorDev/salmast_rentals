@@ -263,7 +263,7 @@ export const HomeCars = ({ myRef }) => {
                                                                         </div>
                                                                         <div>
                                                                             <h4>{langState==="en"?drop_name_en : langState === "ru" ? drop_name_ru : drop_name_hy}</h4>
-                                                                            <p>{drop_num}$</p>
+                                                                            <p>{drop_num }$</p>
                                                                         </div>   
                                                                     </div>
                                                                 )
