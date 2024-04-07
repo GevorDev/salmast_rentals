@@ -44,7 +44,7 @@ export const Header = () => {
     async function getData() {
       try {
         const {data} = await axios.get(
-          "http://16.171.141.213:8000/header_list/"
+          "http://16.171.38.63:8000/header_list/"
         );
         setData(data);
       } catch (error) {

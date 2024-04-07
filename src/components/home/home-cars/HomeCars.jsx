@@ -30,7 +30,8 @@ export const HomeCars = ({ myRef }) => {
         async function getData() {
             try {
                 const { data } = await axios.get(
-                    "http://16.171.171.13:8000/cost_list/"
+                    "http://16.171.38.63:8000/cost_list/"
+                    
                 );
                 setCostData(data);
             } catch (error) {
@@ -44,7 +45,7 @@ export const HomeCars = ({ myRef }) => {
         async function getData() {
             try {
                 const { data } = await axios.get(
-                    "http://16.171.171.13:8000/reservation_list/"
+                    "http://16.171.38.63:8000/reservation_list/"
                 );
                 setReservData(data);
             } catch (error) {
@@ -58,7 +59,7 @@ export const HomeCars = ({ myRef }) => {
         async function getData() {
             try {
                 const { data } = await axios.get(
-                    "http://16.171.171.13:8000/choise_list/"
+                    "http://16.171.38.63:8000/choise_list/"
                 );
                 setDataList(data);
             } catch (error) {
@@ -72,7 +73,7 @@ export const HomeCars = ({ myRef }) => {
         async function getData() {
             try {
                 const { data } = await axios.get(
-                    "http://16.171.171.13:8000/product_list/"
+                    "http://16.171.38.63:8000/product_list/"
                 );
                 setDataCar(data);
             } catch (error) {
@@ -91,7 +92,7 @@ export const HomeCars = ({ myRef }) => {
       : dataCar;
       console.log(filteredData);
 
-    return (
+      return (
         <div ref={myRef} className='home-cars' >
             <Conatiner>
                 <div className="home-cars-top">
@@ -186,12 +187,17 @@ export const HomeCars = ({ myRef }) => {
                                     if (id === product){
                                         return (
                                             <div  className={`home-cars-popup`} key={id}>
+                                                <div className="home-cars-popup-upper">
+                                                    <div className='close-popup'>
+                                                        <span onClick={() => {
+                                                            dispatch(closePopup())
+                                                        }}>
+                                                            x
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div className="home-cars-popup-lower">
                                                 <div className="home-cars-popup-left">
-                                                    <ul className="home-cars-popup-left-list">
-                                                        <li>Car /</li>
-                                                        <li>Booking /</li>
-                                                        <li>Payment /</li>
-                                                    </ul>
                                                     <div className="home-cars-popup-left-title">
                                                         <span>
                                                             Free cancellation
@@ -275,11 +281,9 @@ export const HomeCars = ({ myRef }) => {
                                                         <button className='home-cars-popup-right-options-rent'>{langState==="en"?"Booking":langState==="ru"?"Бронирование":"Ամրագրել"}</button>
                                                     </div>
                                                 </div>
-                                                    <p className='close-popup' onClick={() => {
-                                                        dispatch(closePopup())
-                                                    }}>
-                                                        x
-                                                    </p>
+                                                </div>
+                                                
+                                                
                                             </div>
                                         )
                                     }else{
